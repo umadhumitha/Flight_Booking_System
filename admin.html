@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Login</title>
+   <!-- Cool Google Fonts -->
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+   <!-- Our stylesheet -->
+  <link rel="stylesheet" type="text/css" href="admin.css">
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-database.js"></script>
+  <style>
+    /* Change the color of the date and time input icons to white */
+    input[type="date"]::-webkit-calendar-picker-indicator,
+    input[type="time"]::-webkit-calendar-picker-indicator {
+      filter: invert(1);
+    }
+  </style>
+</head>
+<body>
+    <div id="content_container">
+        <div id="form_container">
+            <div id="form_header_container">
+                <h2 id="form_header">Admin Login</h2>
+            </div>
+
+            <div id="form_content_container">
+                <div id="form_content_inner_container">
+                    <div id="button_container">
+                        <button onclick="showAddFlightPopup()">Add Flight</button>
+                        <button onclick="showRemoveFlightPopup()">Remove Flight</button>
+                    </div>
+                </div>
+                <div id="form_content_inner_container">
+                    <div id="button_container">
+                        <button onclick="view()">View Bookings</button>
+                        <button onclick="logout()">Logout</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div id="add_flight_popup" style="display: none;">
+        <h2>Add Flight</h2>
+        <input type="text" id="flight_number" placeholder="Flight Number"><br>
+        <input type="text" id="flight_name" placeholder="Flight Name"><br>
+        <input type="date" id="flight_date" placeholder="Date"><br>
+        <input type="time" id="flight_time" placeholder="Time"><br>
+        <input type="text" id="flight_from" placeholder="From"><br>
+        <input type="text" id="flight_to" placeholder="To"><br>
+        <button onclick="addFlight()">Submit</button>
+        <button onclick="hideAddFlightPopup()">Cancel</button>
+    </div>
+    <div id="remove_flight_popup" style="display: none;">
+        <h2>Remove Flight</h2>
+        <input type="text" id="flight_name1" placeholder="Flight Name"><br>
+        <!-- <input type="date" id="flight_date" placeholder="Date"><br> -->
+        <button onclick="removeFlight()">Submit</button>
+    </div>
+
+    <div id="flight_container"></div>
+    <div id="booking_container"></div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
